@@ -28,7 +28,7 @@
 }
 
 - (void)americanPsychoMethod {
-    NSString *urlString = @"http://api.giphy.com/v1/gifs/search?q=american+psycho&api_key=dc6zaTOxFJmzC&limit=10";
+    NSString *urlString = @"http://api.giphy.com/v1/gifs/search?q=american+psycho&api_key=dc6zaTOxFJmzC&limit=5";
     
     NSURL *giphyUrl = [NSURL URLWithString:urlString];
     
@@ -50,15 +50,21 @@
             
 //            NSArray *responseArray = [dict valueForKeyPath:@"data.images.downsized.url"];
             giphyArray = [dict valueForKeyPath:@"data.images.downsized.url"];
-            for (NSString *giph in giphyArray) {
-                NSURL *URLString = [NSURL URLWithString:giph];
-                NSData *data = [NSData dataWithContentsOfURL:URLString];
-                UIImage *psychoImage = [[UIImage alloc] initWithData:data];
-                [finalArray addObject:psychoImage];
-                
-            }
             
-            NSLog(@"Final Array Call 2: %@", finalArray);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                for (NSString *giph in giphyArray) {
+                    NSURL *URLString = [NSURL URLWithString:giph];
+                    NSData *data = [NSData dataWithContentsOfURL:URLString];
+                    UIImage *psychoImage = [[UIImage alloc] initWithData:data];
+//                    UIImage* mygif = [UIImage animatedImageWithAnimatedGIFURL:[NSURL URLWithString:@"http://en.wikipedia.org/wiki/File:Rotating_earth_(large).gif"]];
+                    [finalArray addObject:psychoImage];
+                    
+                }
+            
+                NSLog(@"Final Array Call 2: %@", finalArray);
+                [self.collectionView reloadData];
+            });
             [self.collectionView reloadData];
             
         } else {
@@ -78,9 +84,12 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     NSString *identifier = @"Cell";
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-            UIImageView *giphyImageView = (UIImageView *)[cell viewWithTag:100];
-            
-            giphyImageView.image = [finalArray objectAtIndex:indexPath.row];
+    
+    UIImageView *giphyImageView = (UIImageView *)[cell viewWithTag:100];
+    giphyImageView.image = [finalArray objectAtIndex:indexPath.row];
+    
+   
+    
     
     return cell;
 }
