@@ -7,6 +7,7 @@
 //
 
 #import "GiphyCollectionVC.h"
+#import "FLAnimatedImage.h"
 
 @interface GiphyCollectionVC () {
     NSMutableArray *giphyArray;
@@ -28,7 +29,7 @@
 }
 
 - (void)americanPsychoMethod {
-    NSString *urlString = @"http://api.giphy.com/v1/gifs/search?q=american+psycho&api_key=dc6zaTOxFJmzC&limit=5";
+    NSString *urlString = @"http://api.giphy.com/v1/gifs/search?q=american+psycho&api_key=dc6zaTOxFJmzC&limit=10";
     
     NSURL *giphyUrl = [NSURL URLWithString:urlString];
     
@@ -54,11 +55,15 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 
                 for (NSString *giph in giphyArray) {
-                    NSURL *URLString = [NSURL URLWithString:giph];
-                    NSData *data = [NSData dataWithContentsOfURL:URLString];
-                    UIImage *psychoImage = [[UIImage alloc] initWithData:data];
-//                    UIImage* mygif = [UIImage animatedImageWithAnimatedGIFURL:[NSURL URLWithString:@"http://en.wikipedia.org/wiki/File:Rotating_earth_(large).gif"]];
-                    [finalArray addObject:psychoImage];
+//                    NSURL *URLString = [NSURL URLWithString:giph];
+//                    NSData *data = [NSData dataWithContentsOfURL:URLString];
+//                    UIImage *psychoImage = [[UIImage alloc] initWithData:data];
+                    
+                    FLAnimatedImage *image = [FLAnimatedImage animatedImageWithGIFData:[NSData dataWithContentsOfURL:[NSURL URLWithString:giph]]];
+                    
+                    NSLog(@"IMAGE = %@", image);
+                    [finalArray addObject:image];
+//                    [finalArray addObject:psychoImage];
                     
                 }
             
@@ -85,8 +90,16 @@
     NSString *identifier = @"Cell";
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     
-    UIImageView *giphyImageView = (UIImageView *)[cell viewWithTag:100];
-    giphyImageView.image = [finalArray objectAtIndex:indexPath.row];
+//    FLAnimatedImageView *imageView = [[FLAnimatedImageView alloc] init];
+    FLAnimatedImageView *imageView = (FLAnimatedImageView *)[cell viewWithTag:100];
+    
+    imageView.animatedImage = [finalArray objectAtIndex:indexPath.row];
+//    imageView.frame = CGRectMake(0.0, 0.0, 100.0, 100.0);
+//    [self.view addSubview:imageView];
+//
+//    UIImageView *giphyImageView = (UIImageView *)[cell viewWithTag:100];
+//    giphyImageView.image = [finalArray objectAtIndex:indexPath.row];
+//    
     
    
     
