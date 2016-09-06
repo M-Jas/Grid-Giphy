@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3203E8DB53D1128004C98230 /* libPods-Grid-Giphy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D09C91D7B7A3BC781E6E574D /* libPods-Grid-Giphy.a */; };
 		431626D81D78A04600FC7360 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 431626D71D78A04600FC7360 /* main.m */; };
 		431626DB1D78A04600FC7360 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 431626DA1D78A04600FC7360 /* AppDelegate.m */; };
 		431626E11D78A04600FC7360 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 431626DF1D78A04600FC7360 /* Main.storyboard */; };
@@ -60,6 +61,9 @@
 		431626FE1D78A26100FC7360 /* thai_shrimp_cake.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = thai_shrimp_cake.jpg; sourceTree = "<group>"; };
 		431626FF1D78A26100FC7360 /* vegetable_curry.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vegetable_curry.jpg; sourceTree = "<group>"; };
 		431627001D78A26100FC7360 /* white_chocolate_donut.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = white_chocolate_donut.jpg; sourceTree = "<group>"; };
+		C6A73EDB2DEC7800E6852C6C /* Pods-Grid-Giphy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grid-Giphy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Grid-Giphy/Pods-Grid-Giphy.debug.xcconfig"; sourceTree = "<group>"; };
+		C95C382781B955319AD00A22 /* Pods-Grid-Giphy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grid-Giphy.release.xcconfig"; path = "Pods/Target Support Files/Pods-Grid-Giphy/Pods-Grid-Giphy.release.xcconfig"; sourceTree = "<group>"; };
+		D09C91D7B7A3BC781E6E574D /* libPods-Grid-Giphy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Grid-Giphy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3203E8DB53D1128004C98230 /* libPods-Grid-Giphy.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +83,8 @@
 			children = (
 				431626D51D78A04600FC7360 /* Grid-Giphy */,
 				431626D41D78A04600FC7360 /* Products */,
+				8AB56F9B159761199FBA85C2 /* Pods */,
+				E0BF81571131DF877B31AAEE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -130,6 +137,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		8AB56F9B159761199FBA85C2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C6A73EDB2DEC7800E6852C6C /* Pods-Grid-Giphy.debug.xcconfig */,
+				C95C382781B955319AD00A22 /* Pods-Grid-Giphy.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E0BF81571131DF877B31AAEE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D09C91D7B7A3BC781E6E574D /* libPods-Grid-Giphy.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,9 +161,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 431626EA1D78A04600FC7360 /* Build configuration list for PBXNativeTarget "Grid-Giphy" */;
 			buildPhases = (
+				4DFC48DD50EA78F202CAC096 /* [CP] Check Pods Manifest.lock */,
 				431626CF1D78A04600FC7360 /* Sources */,
 				431626D01D78A04600FC7360 /* Frameworks */,
 				431626D11D78A04600FC7360 /* Resources */,
+				7FFC8588A0461FCFD0E0120D /* [CP] Embed Pods Frameworks */,
+				5C398FE6ACB1BE99E7FAAFF2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -211,6 +238,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4DFC48DD50EA78F202CAC096 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5C398FE6ACB1BE99E7FAAFF2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Grid-Giphy/Pods-Grid-Giphy-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7FFC8588A0461FCFD0E0120D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Grid-Giphy/Pods-Grid-Giphy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		431626CF1D78A04600FC7360 /* Sources */ = {
@@ -329,6 +404,7 @@
 		};
 		431626EB1D78A04600FC7360 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6A73EDB2DEC7800E6852C6C /* Pods-Grid-Giphy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Grid-Giphy/Info.plist";
@@ -340,6 +416,7 @@
 		};
 		431626EC1D78A04600FC7360 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C95C382781B955319AD00A22 /* Pods-Grid-Giphy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Grid-Giphy/Info.plist";
@@ -368,6 +445,7 @@
 				431626EC1D78A04600FC7360 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
