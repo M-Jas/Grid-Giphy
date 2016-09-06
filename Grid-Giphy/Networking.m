@@ -15,7 +15,7 @@
 
 
 
-- (void)taskCreationWithURL:(NSURL *)url {
+- (void)taskCreationWithURL:(NSURL *)url giphyArray:(NSMutableArray *)array{
    
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
@@ -35,20 +35,27 @@
     [_task resume];
 }
     
-- (void)parseData:(NSData *)data {
+- (NSMutableArray *)parseData:(NSData *)data {
      NSError *JSONError;
     NSMutableDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error: &JSONError];
     NSMutableArray *arrayFromSerial = [dict valueForKeyPath:@"data.images.downsized.url"];
   
     //
         dispatch_async(dispatch_get_main_queue(), ^{
+    //
+    //        for (NSString *giphString in array) {
+    //            FLAnimatedImage *giph = [FLAnimatedImage animatedImageWithGIFData:[NSData dataWithContentsOfURL:[NSURL URLWithString:giphString]]];
+    //            [finalArray addObject:giph];
+    //
+    //            [self.collectionView reloadData];
+    //
+    //        }
+    //        [self.collectionView reloadData];
+    //    });
     
-            for (NSString *giphString in arrayFromSerial) {
-                FLAnimatedImage *giph = [FLAnimatedImage animatedImageWithGIFData:[NSData dataWithContentsOfURL:[NSURL URLWithString:giphString]]];
-                [_finalArr addObject:giph];
-            }
-
-        });
+    return arrayFromSerial;
+    
+    
 }
 
 

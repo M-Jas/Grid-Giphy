@@ -107,51 +107,53 @@
 
 
 // Pre-Refactor
-//- (void)americanPsychoMethod {
-//    NSString *urlString = @"http://api.giphy.com/v1/gifs/search?q=american+psycho&api_key=dc6zaTOxFJmzC&limit=100";
-//    
-//    NSURL *giphyUrl = [NSURL URLWithString:urlString];
-//    
-//    NSURLRequest *request = [NSURLRequest requestWithURL:giphyUrl];
-//    
-//    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
-//    
-//    NSURLSession *session = [NSURLSession sessionWithConfiguration:config];
-//    
-//    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-//        
-//        if (httpResponse.statusCode == 200) {
-//            NSError *JSONError;
-//            
-//            NSMutableDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&JSONError];
-//            
-//            giphyArray = [dict valueForKeyPath:@"data.images.downsized.url"];
-//            
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                
-//                for (NSString *giphString in giphyArray) {
-//                    // NSURL *URLString = [NSURL URLWithString:giph];
-//                    // NSData *data = [NSData dataWithContentsOfURL:URLString];
-//                    
-//                    //Short Hand version
-//                    FLAnimatedImage *giph = [FLAnimatedImage animatedImageWithGIFData:[NSData dataWithContentsOfURL:[NSURL URLWithString:giphString]]];
-//                    
-//                    [finalArray addObject:giph];
-//                    
-//                    [self.collectionView reloadData];
-//                    
-//                }
-//                
-//                [self.collectionView reloadData];
-//                
-//            });
-//            
-//            [self.collectionView reloadData];
-//            
-//        } else {
-//            NSLog(@"ERROR MICHAEL: %@", error);
-//        }
-//    }];
-//    
-//    [task resume];
-//}
+/*
+- (void)americanPsychoMethod {
+    NSString *urlString = @"http://api.giphy.com/v1/gifs/search?q=american+psycho&api_key=dc6zaTOxFJmzC&limit=100";
+    
+    NSURL *giphyUrl = [NSURL URLWithString:urlString];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:giphyUrl];
+    
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:config];
+    
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+        
+        if (httpResponse.statusCode == 200) {
+            NSError *JSONError;
+            
+            NSMutableDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&JSONError];
+            
+            giphyArray = [dict valueForKeyPath:@"data.images.downsized.url"];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                for (NSString *giphString in giphyArray) {
+                    // NSURL *URLString = [NSURL URLWithString:giph];
+                    // NSData *data = [NSData dataWithContentsOfURL:URLString];
+                    
+                    //Short Hand version
+                    FLAnimatedImage *giph = [FLAnimatedImage animatedImageWithGIFData:[NSData dataWithContentsOfURL:[NSURL URLWithString:giphString]]];
+                    
+                    [finalArray addObject:giph];
+                    
+                    [self.collectionView reloadData];
+                    
+                }
+                
+                [self.collectionView reloadData];
+                
+            });
+            
+            [self.collectionView reloadData];
+            
+        } else {
+            NSLog(@"ERROR MICHAEL: %@", error);
+        }
+    }];
+    
+    [task resume];
+}
+ */
